@@ -1,0 +1,905 @@
+body {
+    font-family: Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    color: white;
+}
+
+
+/* Header - Layout Desktop */
+header {
+    background-color: #000000;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between; /* Spazio tra logo e menu */
+    align-items: center;
+    flex-wrap: wrap; /* Aggiunto per il wrapping delle voci su mobile */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Allinea il logo a sinistra */
+    margin-right: 20px; /* Aggiunge spazio tra il logo e il menu su desktop */
+}
+
+.logo a {
+    color: #fff;
+    font-size: 1.2rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu-right {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    justify-content: flex-end; /* Allinea il menu a destra */
+}
+
+.menu-right li {
+    margin-left: 20px; /* Distanza tra i link */
+}
+
+.menu-right li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+}
+
+/* Nasconde il checkbox per il burger menu */
+.burger-toggle {
+    display: none;
+}
+
+/* Burger Icon - visibile solo su mobile */
+.burger-icon {
+    display: none; /* Nasconde il burger menu su desktop */
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 21px;
+    width: 30px;
+}
+
+.burger-icon span {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    transition: 0.3s;
+}
+
+/* Media Query per dispositivi con larghezza max 768px (tablet orizzontale e mobile) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Disposizione verticale per mobile */
+        align-items: flex-start; /* Allineamento a sinistra */
+        padding: 1rem; /* Riduce il padding per evitare sovrapposizioni */
+    }
+
+    /* Posiziona il logo sopra il menu quando il burger è attivo */
+    .logo {
+        margin-bottom: 10px; /* Distanza tra logo e menu */
+        width: 100%;
+    }
+
+    .menu-right {
+        display: none; /* Nasconde il menu inizialmente */
+        flex-direction: column; /* Menu in colonna su mobile */
+        align-items: flex-start; /* Allinea il menu a sinistra */
+        width: 100%;
+        margin-top: 10px; /* Spazio tra il logo e il menu */
+    }
+
+    .menu-right li {
+        margin-left: 0; /* Rimuove il margine laterale */
+        margin-top: 10px; /* Spazio tra le voci */
+        width: 100%; /* Le voci occupano tutta la larghezza */
+    }
+
+    .menu-right li a {
+        padding: 1rem; /* Aumenta il padding per una maggiore facilità di clic */
+        text-align: left; /* Allinea il testo a sinistra */
+        width: 100%; /* Le voci occupano tutta la larghezza */
+    }
+
+    /* Mostra il menu quando il checkbox è attivato */
+    #burger-toggle:checked + .burger-icon + .menu-right {
+        display: flex;
+    }
+
+    /* Mostra il burger menu su dispositivi mobili */
+    .burger-icon {
+        display: flex; /* Mostra il burger menu su dispositivi mobili */
+    }
+
+    /* Animazione del burger menu (attivazione) */
+    #burger-toggle:checked + .burger-icon span:nth-child(1) {
+        transform: rotate(-45deg);
+        transform-origin: 0 0;
+    }
+
+    #burger-toggle:checked + .burger-icon span:nth-child(2) {
+        opacity: 0;
+    }
+
+    #burger-toggle:checked + .burger-icon span:nth-child(3) {
+        transform: rotate(45deg);
+        transform-origin: 0 0;
+    }
+}
+
+/* Media Query per dispositivi con larghezza max 480px (smartphone) */
+@media (max-width: 480px) {
+    .menu-right li a {
+        font-size: 1rem; /* Riduce la dimensione del font su schermi piccoli */
+    }
+
+    .logo a {
+        font-size: 1.2rem; /* Riduce la dimensione del logo su schermi piccoli */
+    }
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    background-color: #A7AFE6;
+}
+
+.hero-text {
+    max-width: 50%;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    color: #000000;
+}
+
+.hero-text h5 {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.hero-text h6 {
+    font-size: 1.2rem;
+    color: #272626;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column; 
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .hero-text {
+        max-width: 100%; 
+        padding-bottom: 1rem;
+    }
+
+    .hero-image {
+        width: 100%; 
+        padding-top: 1rem; 
+    }
+
+    .hero-image img {
+        width: 100%; 
+        height: auto;
+        border-radius: 10px;
+    }
+}
+
+.intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    margin-top: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.text-container {
+    max-width: 50%;
+}
+
+.text-container h2 {
+    font-size: 2.5rem;
+    color: #A7AFE6;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.text-container p {
+    font-size: 1.2rem;
+    color: white;
+    line-height: 1.6;
+}
+
+.image-container {
+    max-width: 45%;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+
+@media (max-width: 768px) {
+    .intro {
+        flex-direction: row; 
+        text-align: center;
+    }
+
+    .text-container {
+        max-width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    .image-container {
+        max-width: 100%;
+        margin-top: 1rem;
+    }
+
+    .image-container img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 480px) {
+    .text-container h2 {
+        font-size: 1.8rem;
+    }
+
+    .text-container p {
+        font-size: 1rem;
+    }
+
+    .image-container img {
+        height: 200px;
+    }
+}
+
+
+
+.intro {
+    display: flex;                       
+    justify-content: space-between;       
+    align-items: center;                   
+    padding: 2rem;
+    margin-top: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;                         
+    flex-wrap: wrap; 
+}
+
+.text-container {
+    max-width: 50%;                       
+}
+
+.text-container h2 {
+    font-size: 2.5rem;
+    color: #A7AFE6;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.text-container p {
+    font-size: 1.2rem;
+    color: white;
+    line-height: 1.6;
+}
+
+
+.image-container {
+    max-width: 45%;                        
+    overflow: hidden;                     
+}
+
+.image-container img {
+    width: 100%;                           
+    height: auto;                          
+    object-fit: cover;                       
+}
+
+@media (max-width: 768px) {
+    .intro {
+        flex-direction: column;             
+        text-align: center;                
+    }
+
+    .text-container {
+        max-width: 100%;                   
+        margin-bottom: 1.5rem;           
+    }
+
+    .image-container {
+        max-width: 100%;                   
+        margin-top: 1rem;                   
+    }
+
+    .image-container img {
+        width: 100%;                        
+        height: 250px;                   
+        object-fit: cover;                 
+    }
+}
+
+@media (max-width: 480px) {
+  
+    .text-container h2 {
+        font-size: 1.8rem;                 
+    }
+
+    .text-container p {
+        font-size: 1rem;                    
+    }
+
+    .image-container img {
+        height: 200px;                      
+    }
+}
+
+
+@media (max-width: 768px) {
+    .menu-right {
+        display: none; 
+    }
+
+ 
+    .hamburger-menu {
+        display: block;
+        cursor: pointer;
+    }
+
+
+    .hamburger-menu.active + .menu-right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+}
+
+
+.hamburger-menu {
+    display: none;
+    font-size: 2rem;
+    color: white;
+}
+
+.hamburger-menu.active {
+    display: block;
+}
+
+
+.divider-section {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+
+.divider {
+    width: 80%;                     
+    height: 2px;                    
+    background-color: #A7AFE6;      
+    margin: 0 auto;                 
+}
+
+@media (max-width: 768px) {
+    .divider {
+        width: 60%;                  
+        height: 1px;              
+    }
+}
+
+@media (max-width: 480px) {
+    .divider {
+        width: 50%;             
+        height: 1px;                 
+    }
+}
+
+
+.cards {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.card {
+    width: 250px; 
+    background-color: #A7AFE6;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    text-decoration: none; 
+    color: inherit; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.card h3 {
+    font-size: 1.25rem;
+    margin: 20px 0 10px;
+    color: #000000;
+}
+
+.card p {
+    font-size: 1rem;
+}
+
+.card:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+}
+
+
+@media (max-width: 1024px) {
+    .cards {
+        justify-content: center;
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .card {
+        width: 220px; 
+    }
+}
+
+
+@media (max-width: 768px) {
+    .cards {
+        flex-direction: column; 
+        align-items: center; 
+        gap: 15px; 
+    }
+
+    .card {
+        width: 85%; 
+        max-width: 320px; 
+    }
+}
+
+
+@media (max-width: 480px) {
+    .cards {
+        gap: 10px; 
+        margin-top: 20px;
+    }
+
+    .card {
+        width: 90%; 
+        max-width: 280px; 
+        padding: 12px; 
+    }
+
+    .card h3 {
+        font-size: 1rem; 
+    }
+
+    .card p {
+        font-size: 0.85rem; 
+    }
+}
+
+
+@media (max-width: 360px) {
+    .card {
+        width: 100%; 
+        max-width: 260px; 
+    }
+
+    .card h3 {
+        font-size: 0.9rem;
+    }
+
+    .card p {
+        font-size: 0.8rem;
+    }
+}
+
+
+ .footer-right ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.footer-right ul li {
+    margin: 0 1rem;
+    font-weight: bold;
+}
+
+.footer-right ul li a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.5rem; 
+    transition: color 0.3s ease;
+    font-weight: bold;
+}
+
+.footer-right ul li a:hover {
+    color: #A7AFE6; 
+}
+
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-left, .footer-center, .footer-right {
+        flex: 1;
+        margin: 1rem 0;
+    }
+
+    .footer-right ul {
+        flex-direction: column;  
+    }
+
+    .footer-right ul li {
+        margin-bottom: 1rem;
+    }
+
+    .footer-right ul li a {
+        font-size: 1.2rem; 
+    }
+}
+
+
+.footer-left p {
+    font-size: 0.8rem; 
+    color: #000000;
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+
+.footer-left p a {
+    color: #A7AFE6;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-left p a:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+
+.footer {
+    background-color: #A7AFE6;
+    color: #000000;
+    padding: 2rem;
+    font-family: Helvetica, sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; 
+}
+
+.footer-left, .footer-center, .footer-right {
+    flex: 1;
+    text-align: center;
+    margin: 1rem;
+}
+
+
+.footer-center ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+}
+
+.footer-center ul li {
+    margin: 0.5rem 0;
+    font-weight: bold;
+}
+
+.footer-center ul li a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.footer-center ul li a:hover {
+    color: #000000;
+    font-weight: bold;
+}
+
+*****
+
+#hero-artisti {
+    position: relative;
+    width: 100%;  /* L'immagine si estende su tutta la larghezza della pagina */
+    height: 60vh; /* Altezza responsiva in base alla finestra, puoi regolarla */
+}
+
+
+.hero-image1 img {
+    width: 100%;  /* Immagine che si estende su tutta la larghezza */
+    height: 100%; /* L'immagine riempie tutta l'altezza dell'hero */
+    object-fit: cover; /* Mantiene l'aspetto dell'immagine senza deformazioni */
+}
+
+
+#hero-mostra {
+    position: relative;
+    width: 100%;  /* L'immagine si estende su tutta la larghezza della pagina */
+    height: 60vh; /* Altezza responsiva in base alla finestra, puoi regolarla */
+}
+
+
+.hero-image2 img {
+    width: 100%;  /* Immagine che si estende su tutta la larghezza */
+    height: 100%; /* L'immagine riempie tutta l'altezza dell'hero */
+    object-fit: cover; /* Mantiene l'aspetto dell'immagine senza deformazioni */
+}
+
+
+.divider1-section2 {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+
+.divider1 {
+    width: 80%;                     
+    height: 2px;                    
+    background-color: #A7AFE6;      
+    margin: 0 auto;                 
+}
+
+@media (max-width: 768px) {
+    .divider1 {
+        width: 60%;                  
+        height: 1px;              
+    }
+}
+
+@media (max-width: 480px) {
+    .divider1 {
+        width: 50%;             
+        height: 1px;                 
+    }
+}
+
+/* Container principale della galleria */
+.photo-gallery {
+    display: flex;
+    flex-wrap: wrap; /* Consente alle foto di andare su più righe se necessario */
+    justify-content: center; /* Centra le foto orizzontalmente */
+    gap: 20px; /* Spazio tra le foto */
+    padding: 20px;
+}
+
+/* Ogni foto */
+.photo-item {
+    flex: 1 1 220px; /* Le foto saranno flessibili ma con una larghezza di base di 220px */
+    max-width: 300px; /* Limita la larghezza massima per evitare che diventino troppo grandi */
+    height: 200px; /* Impostiamo un'altezza fissa per le foto */
+    overflow: hidden; /* Nasconde la parte dell'immagine che fuoriesce */
+    border-radius: 10px; /* Angoli arrotondati */
+}
+
+.photo-item img {
+    width: 100%; /* L'immagine occupa tutta la larghezza del contenitore */
+    height: 100%; /* L'immagine occupa tutta l'altezza del contenitore */
+    object-fit: cover; /* Ritaglia l'immagine mantenendo il rapporto d'aspetto */
+}
+
+/* Media Query per dispositivi tra 768px e 1024px (tablet in orizzontale) */
+@media (max-width: 1024px) {
+    .photo-item {
+        flex: 1 1 45%; /* Le foto occupano il 45% della larghezza disponibile */
+    }
+}
+
+/* Media Query per dispositivi tra 480px e 768px (tablet e smartphone) */
+@media (max-width: 768px) {
+    .photo-item {
+        flex: 1 1 45%; /* Le foto occupano il 45% della larghezza disponibile */
+    }
+}
+
+/* Media Query per dispositivi più piccoli (< 480px) */
+@media (max-width: 480px) {
+    .photo-gallery {
+        flex-direction: column; /* Le foto si dispongono in colonna */
+        gap: 15px; /* Riduce lo spazio tra le foto */
+    }
+
+    .photo-item {
+        flex: 1 1 100%; /* Ogni foto occupa il 100% della larghezza */
+        max-width: none; /* Rimuove il limite massimo di larghezza */
+    }
+}
+
+/* Secondo divisore - grigio chiaro e tratteggiato */
+.divider-two {
+    background-color: #000000; /* Colore grigio chiaro */
+    border-top: 1px dashed #000; /* Rendi il divisore tratteggiato */
+    width: 100%;
+    height: 2px; /* Altezza del divisore */
+    margin: 30px 0; /* Distanza sopra e sotto il divisore */
+}
+
+/* Media Queries per dispositivi con larghezza massima 768px (tablet) */
+@media (max-width: 768px) {
+    .divider-two {
+        border-top: 1px dashed #000000; /* Cambia il colore del tratteggio su schermi piccoli */
+        margin: 20px 0; /* Riduce lo spazio tra il divisore e gli altri elementi */
+    }
+}
+
+/* Media Queries per dispositivi più piccoli di 480px (smartphone) */
+@media (max-width: 480px) {
+    .divider-two {
+        margin: 15px 0; /* Riduce ulteriormente lo spazio tra il divisore e gli altri elementi */
+    }
+}
+
+.text-container h3 {
+    font-size: 2.5rem;
+    color: #B4E6A7;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+
+.text-container h3 {
+    font-size: 1.2rem;
+    color: #B4E6A7;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+         /* Contenitore della mappa */
+         .mappa-container {
+            position: relative;
+            width: 100%;        /* Si adatta alla larghezza del dispositivo */
+            padding-top: 56.25%; /* Rapporti 16:9 (16/9 = 1.77777, che corrisponde al 56.25%) */
+            height: 0;          /* Altezza dinamica in base alla larghezza */
+            overflow: hidden;
+            background: #e0e0e0;
+        }
+
+        /* Stili per l'iframe della mappa */
+        .mappa-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;        /* L'iframe occupa tutta la larghezza del contenitore */
+            height: 100%;       /* L'iframe occupa tutta l'altezza del contenitore */
+            border: none;
+        }
+
+        /* Ottimizzazione per dispositivi con schermo piccolo (smartphone) */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 18px;
+            }
+        }
+
+
+****
+
+body.paginecollegamenti {
+    font-family: Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #313232;
+    color: white;
+}
+
+body.paginablow {
+    font-family: Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #313232;
+    color: white;
+}
+
+body.paginacullien {
+    font-family: Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #313232;
+    color: white;
+}
+
+body.paginapaukova {
+    font-family: Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #313232;
+    color: white;
+}
+
+
+****
+
+.divider-cinque {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.divider-cinque::before,
+.divider-cinque::after {
+    content: '';
+    flex-grow: 1;
+    height: 1px;
+    background-color: black;
+}
+
+.divider-text {
+    padding: 0 15px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: black;
+}
+
+/* Responsività */
+@media (max-width: 768px) {
+    .divider-text {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .divider-text {
+        font-size: 1rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+  
